@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 const app = express();
 const _ = require("lodash");
 
-mongoose.connect("mongodb+srv://mrigesh:Q123w456e789@cluster0.ehrrtxz.mongodb.net/todolistDB",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://mrigesh:<password>@cluster0.ehrrtxz.mongodb.net/todolistDB",{useNewUrlParser:true});
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
