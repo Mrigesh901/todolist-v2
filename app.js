@@ -93,14 +93,14 @@ app.get("/about", function(req, res){
 
 
 app.post('/', function(req, res){
-    itemName = req.body.additem
-    listName = req.body.listtype
+    const itemName = req.body.additem
+    const listName = req.body.listtype
     const item = new Item({
         name: itemName
     })
 
     if (listName===today){
-        itemName.save();
+        item.save();
         res.redirect('/');
     } else {
         List.findOne({name:listName}, function(err,foundList){
@@ -114,8 +114,8 @@ app.post('/', function(req, res){
 )
 
 app.post("/delete",function(req,res){
-    itemid = req.body.checkbox;
-    listName = req.body.listName
+    const itemid = req.body.checkbox;
+    const listName = req.body.listName;
 
     if (listName===today){
         Item.findByIdAndRemove({_id:itemid}, function(err){
@@ -138,7 +138,7 @@ app.post("/delete",function(req,res){
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 8000;
+  port = 3000;
 }
 
 app.listen(port,function(){
